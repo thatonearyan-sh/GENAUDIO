@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+
+# Environment & Credentials
+.env
+.env.local
+*.secret
+accounts.local.json
+
+# Audio Outputs & Personal Cache
+outputs/
+*.mp3
+*.wav
+*.flac
+*.m4a
+!core/voice_previews/*.mp3
+!core/demo_stem_track.mp3
+.voices_cache.json
+
+# OS Specific
+.DS_Store
+Thumbs.db
