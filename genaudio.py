@@ -3,3 +3,5 @@ import sys
 print('GENAUDIO CLI Initialized')
 
 # Interactive loop setup
+
+# Rich console theme configuration
