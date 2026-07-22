@@ -134,3 +134,5 @@ class AudioGenerator:
                 time.sleep(2)
 
         return {"success": False, "error": f"Failed after {max_retries} attempts: {last_error}"}
+
+# Stream chunking implementation
