@@ -136,3 +136,5 @@ class AudioGenerator:
         return {"success": False, "error": f"Failed after {max_retries} attempts: {last_error}"}
 
 # Stream chunking implementation
+
+# Exponential retry backoff on 5xx
