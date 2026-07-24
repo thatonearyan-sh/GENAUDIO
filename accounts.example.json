@@ -1,0 +1,30 @@
+{
+  "accounts": [
+    {
+      "id": 1,
+      "name": "ElevenLabs Primary Key",
+      "api_key": "sk_your_elevenlabs_api_key_here",
+      "status": "active",
+      "tier": "free",
+      "character_limit": 10000,
+      "character_count": 0,
+      "character_remaining": 10000,
+      "last_checked": "2026-08-01T12:00:00.000000"
+    },
+    {
+      "id": 2,
+      "name": "ElevenLabs Failover Key",
+      "api_key": "sk_your_backup_api_key_here",
+      "status": "active",
+      "tier": "free",
+      "character_limit": 10000,
+      "character_count": 0,
+      "character_remaining": 10000,
+      "last_checked": "2026-08-01T12:00:00.000000"
+    }
+  ],
+  "settings": {
+    "strategy": "highest_quota_first",
+    "auto_failover": true
+  }
+}
