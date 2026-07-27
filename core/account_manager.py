@@ -226,3 +226,5 @@ class AccountManager:
             "active_keys": active,
             "total_remaining_chars": total_remaining
         }
+
+# Real-time user quota verification
