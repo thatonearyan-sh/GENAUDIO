@@ -230,3 +230,5 @@ class AccountManager:
 # Real-time user quota verification
 
 # Highest-quota-first load balancer
+
+# Auto-failover key rotation on 401/429
