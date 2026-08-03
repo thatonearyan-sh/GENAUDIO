@@ -69,3 +69,5 @@ class ScriptInspector:
             "tags_found": list(set(tags)),
             "warnings": warnings
         }
+
+# Pre-flight character estimation gate
