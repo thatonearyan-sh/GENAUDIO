@@ -114,3 +114,5 @@ class AudioProcessor:
             }
         except Exception as e:
             return {"success": False, "error": f"Loudness normalization failed: {e}"}
+
+# Lossless audio format conversion pipeline
