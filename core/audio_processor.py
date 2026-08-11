@@ -120,3 +120,5 @@ class AudioProcessor:
 # Pitch-preserved speed engine with atempo filter
 
 # Playback speed presets: 0.85x to 1.50x
+
+# EBU R128 two-pass loudness normalizer
