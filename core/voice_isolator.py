@@ -76,3 +76,5 @@ class VoiceIsolator:
                 time.sleep(1)
 
         return {"success": False, "error": f"Voice isolation failed: {last_error}"}
+
+# Vocal cleaner and noise cancellation test
