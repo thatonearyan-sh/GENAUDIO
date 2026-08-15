@@ -188,3 +188,5 @@ class LongFormEngine:
             "size_mb": round(size_mb, 2),
             "parts": part_files
         }
+
+# Markdown scene boundary recognition
