@@ -190,3 +190,5 @@ class LongFormEngine:
         }
 
 # Markdown scene boundary recognition
+
+# Lossless audio chunk stitching via ffmpeg
