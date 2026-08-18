@@ -78,3 +78,5 @@ class SubtitleGenerator:
             "vtt_file": vtt_path,
             "total_subtitles": len(segments)
         }
+
+# Subtitle timecode alignment with audio length
