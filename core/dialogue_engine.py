@@ -156,3 +156,5 @@ class DialogueEngine:
             "size_mb": size_mb,
             "parts": part_files
         }
+
+# Assign custom voices per speaker tag
