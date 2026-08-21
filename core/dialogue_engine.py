@@ -158,3 +158,5 @@ class DialogueEngine:
         }
 
 # Assign custom voices per speaker tag
+
+# Insert natural conversational pauses
