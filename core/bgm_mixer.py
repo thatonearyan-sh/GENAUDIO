@@ -76,3 +76,5 @@ class BGMMixer:
             }
         except Exception as e:
             return {"success": False, "error": f"FFmpeg BGM mix failed: {e}"}
+
+# Sidechain auto-ducking audio filter
