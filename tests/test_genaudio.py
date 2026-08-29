@@ -178,3 +178,5 @@ class TestGenAudioAllModules(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+# Edge case hardening and timeout guards
