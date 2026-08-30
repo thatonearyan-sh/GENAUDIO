@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="termGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+  </defs>
+
+  <rect width="920" height="420" rx="12" fill="url(#termGrad)" stroke="#374151" stroke-width="1.5" />
+  <rect width="920" height="34" rx="12" fill="#1F2937" />
+  <rect y="22" width="920" height="12" fill="#1F2937" />
+  <circle cx="20" cy="17" r="5.5" fill="#EF4444" />
+  <circle cx="38" cy="17" r="5.5" fill="#F59E0B" />
+  <circle cx="56" cy="17" r="5.5" fill="#10B981" />
+  <text x="460" y="22" fill="#9CA3AF" font-family="monospace" font-size="12" text-anchor="middle">aryan@macbook: ~/AryanTools/GENAUDIO - python3 genaudio.py</text>
+
+  <g font-family="monospace" font-size="11" fill="#E5E7EB" xml:space="preserve">
+    <text x="30" y="65" fill="#00E5FF" font-weight="700">  ██████╗ ███████╗███╗   ██╗ █████╗ ██╗   ██╗██████╗ ██╗ ██████╗ </text>
+    <text x="30" y="80" fill="#00E5FF" font-weight="700"> ██╔════╝ ██╔════╝████╗  ██║██╔══██╗██║   ██║██╔══██╗██║██╔═══██╗</text>
+    <text x="30" y="95" fill="#00E5FF" font-weight="700"> ██║  ███╗█████╗  ██╔██╗ ██║███████║██║   ██║██║  ██║██║██║   ██║</text>
+    <text x="30" y="110" fill="#00E5FF" font-weight="700"> ██║   ██║██╔══╝  ██║╚██╗██║██╔══██║██║   ██║██║  ██║██║██║   ██║</text>
+    <text x="30" y="125" fill="#00E5FF" font-weight="700"> ╚██████╔╝███████╗██║ ╚████║██║  ██║╚██████╔╝██████╔╝██║╚██████╔╝</text>
+    <text x="30" y="140" fill="#6B7280">  ElevenLabs Enterprise Interactive Audio Studio • Architect: Aryan</text>
+
+    <rect x="30" y="155" width="860" height="26" rx="4" fill="#1E293B" />
+    <text x="42" y="172" fill="#10B981" font-weight="700">● KEY POOL ACTIVE</text>
+    <text x="210" y="172" fill="#94A3B8">Accounts: 15 Loaded (13 Healthy)</text>
+    <text x="490" y="172" fill="#FBBF24">Quota Pool: 54,578 Characters</text>
+    <text x="750" y="172" fill="#00E5FF">Strategy: Auto-Failover</text>
+
+    <text x="30" y="210" fill="#F3F4F6" font-weight="700">SELECT AUDIO MODULE:</text>
+    <text x="45" y="235" fill="#38BDF8">❯ 1. [Quick TTS] Step-by-Step Character &amp; Voice Synthesis</text>
+    <text x="45" y="255" fill="#9CA3AF">  2. [Long-Form Studio] Auto-Chunking, Lossless Merge &amp; Synchronized Subtitles (.SRT/.VTT)</text>
+    <text x="45" y="275" fill="#9CA3AF">  3. [Dialogue Studio] Multi-Voice Conversational Podcast &amp; Character Script Engine</text>
+    <text x="45" y="295" fill="#9CA3AF">  4. [Tag Auto-Injector] Contextual Emotion &amp; Pacing Injector ([whispers], [laughs])</text>
+    <text x="45" y="315" fill="#9CA3AF">  5. [BGM Mixer] Sidechain Auto-Ducking Background Music Layering</text>
+    <text x="45" y="335" fill="#9CA3AF">  6. [Voice Isolator] Background Noise, Echo &amp; Chatter Stripper</text>
+    <text x="45" y="355" fill="#9CA3AF">  7. [Audio Tools] Pitch-Preserved Speed Engine, Format Converter, Stem Splitter</text>
+    <text x="45" y="375" fill="#9CA3AF">  8. [Account Health] Quota Monitor, Live Key Validator &amp; Balance Balancer</text>
+    
+    <text x="30" y="405" fill="#10B981">[Press Enter to select, Arrow keys to navigate, Ctrl+C to exit]</text>
+  </g>
+</svg>

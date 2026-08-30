@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95" />
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1E293B" stroke-width="0.75" stroke-opacity="0.5" />
+    </pattern>
+  </defs>
+
+  <rect width="920" height="480" rx="16" fill="url(#bgGlow)" />
+  <rect width="920" height="480" rx="16" fill="url(#grid)" />
+  <rect width="918" height="478" x="1" y="1" rx="15" fill="none" stroke="#334155" stroke-width="1.5" />
+
+  <text x="36" y="42" fill="#F8FAFC" font-family="monospace" font-size="15" font-weight="700" letter-spacing="1">GENAUDIO // MULTI-TIER AUDIO STUDIO ENGINE</text>
+  <text x="36" y="62" fill="#64748B" font-family="monospace" font-size="11">Terminal TUI • Key Pool Failover • Speech Chunking • Sidechain BGM • Subtitles</text>
+
+  <!-- COLUMN 1: TUI & INTERACTION -->
+  <g transform="translate(36, 90)">
+    <rect width="260" height="350" rx="12" fill="url(#cardGrad)" stroke="#00E5FF" stroke-width="1.5" stroke-opacity="0.8" />
+    <rect x="0" y="0" width="260" height="36" rx="12" fill="#00E5FF" fill-opacity="0.15" />
+    <circle cx="18" cy="18" r="4" fill="#00E5FF" />
+    <text x="30" y="22" fill="#E2E8F0" font-family="monospace" font-size="11.5" font-weight="700">1. TUI CONTROLLER (CLI)</text>
+
+    <g transform="translate(15, 50)">
+      <rect width="230" height="60" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#38BDF8" font-family="monospace" font-size="10.5" font-weight="700">genaudio.py (Main TUI)</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">Rich Tables &amp; InquirerPy Loops</text>
+      <text x="12" y="52" fill="#64748B" font-family="monospace" font-size="8.5">1-Tap Submenu Navigation</text>
+    </g>
+
+    <g transform="translate(15, 120)">
+      <rect width="230" height="60" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#E2E8F0" font-family="monospace" font-size="10.5" font-weight="700">Voice Browser &amp; Previews</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">Local 5-Sec Offline Samples</text>
+      <text x="12" y="52" fill="#64748B" font-family="monospace" font-size="8.5">Gender, Accent, Age Filter</text>
+    </g>
+
+    <g transform="translate(15, 190)">
+      <rect width="230" height="60" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#A78BFA" font-family="monospace" font-size="10.5" font-weight="700">Script Inspector</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">Word Count &amp; Duration Estimator</text>
+      <text x="12" y="52" fill="#64748B" font-family="monospace" font-size="8.5">Pre-flight Quota Safety Gate</text>
+    </g>
+
+    <g transform="translate(15, 260)">
+      <rect width="230" height="70" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#FBBF24" font-family="monospace" font-size="10.5" font-weight="700">Emotion Tag Injector</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">v3 Conversational Cue Parsing</text>
+      <text x="12" y="54" fill="#34D399" font-family="monospace" font-size="8.5">[whispers], [gasps], [laughs]</text>
+    </g>
+  </g>
+
+  <!-- COLUMN 2: AUDIO ORCHESTRATION -->
+  <g transform="translate(330, 90)">
+    <rect width="260" height="350" rx="12" fill="url(#cardGrad)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.8" />
+    <rect x="0" y="0" width="260" height="36" rx="12" fill="#8B5CF6" fill-opacity="0.15" />
+    <circle cx="18" cy="18" r="4" fill="#8B5CF6" />
+    <text x="30" y="22" fill="#E2E8F0" font-family="monospace" font-size="11.5" font-weight="700">2. AUDIO ORCHESTRATION</text>
+
+    <g transform="translate(15, 50)">
+      <rect width="230" height="60" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#C084FC" font-family="monospace" font-size="10.5" font-weight="700">Dialogue &amp; Podcast Studio</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">Multi-Speaker Turn Parsing</text>
+      <text x="12" y="52" fill="#64748B" font-family="monospace" font-size="8.5">Natural Pause Intersplicing</text>
+    </g>
+
+    <g transform="translate(15, 120)">
+      <rect width="230" height="60" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#EC4899" font-family="monospace" font-size="10.5" font-weight="700">Long-Form &amp; Subtitles</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">Auto-Chunking &amp; Stitching</text>
+      <text x="12" y="52" fill="#64748B" font-family="monospace" font-size="8.5">Synchronized .SRT &amp; .VTT Output</text>
+    </g>
+
+    <g transform="translate(15, 190)">
+      <rect width="230" height="60" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#F43F5E" font-family="monospace" font-size="10.5" font-weight="700">BGM Auto-Duck Mixer</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">FFmpeg Sidechain Compression</text>
+      <text x="12" y="52" fill="#64748B" font-family="monospace" font-size="8.5">Dynamic Ducking Under Speech</text>
+    </g>
+
+    <g transform="translate(15, 260)">
+      <rect width="230" height="70" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#10B981" font-family="monospace" font-size="10.5" font-weight="700">Audio Tools &amp; Normalizer</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">Pitch-Preserved Speed Engine</text>
+      <text x="12" y="54" fill="#34D399" font-family="monospace" font-size="8.5">EBU R128 Loudness + Stem Split</text>
+    </g>
+  </g>
+
+  <!-- COLUMN 3: RESILIENT KEY POOL -->
+  <g transform="translate(624, 90)">
+    <rect width="260" height="350" rx="12" fill="url(#cardGrad)" stroke="#10B981" stroke-width="1.5" stroke-opacity="0.8" />
+    <rect x="0" y="0" width="260" height="36" rx="12" fill="#10B981" fill-opacity="0.15" />
+    <circle cx="18" cy="18" r="4" fill="#10B981" />
+    <text x="30" y="22" fill="#E2E8F0" font-family="monospace" font-size="11.5" font-weight="700">3. RESILIENT KEY POOL</text>
+
+    <g transform="translate(15, 50)">
+      <rect width="230" height="85" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#34D399" font-family="monospace" font-size="10.5" font-weight="700">account_manager.py</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">• Multi-Account JSON Storage</text>
+      <text x="12" y="54" fill="#94A3B8" font-family="monospace" font-size="9.5">• Real-Time Quota Health Check</text>
+      <text x="12" y="68" fill="#64748B" font-family="monospace" font-size="8.5">Automated Tier &amp; Char Sync</text>
+    </g>
+
+    <g transform="translate(15, 150)">
+      <rect width="230" height="85" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#FBBF24" font-family="monospace" font-size="10.5" font-weight="700">Smart Load Balancer</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">• Highest-Quota-First Routing</text>
+      <text x="12" y="54" fill="#94A3B8" font-family="monospace" font-size="9.5">• Zero-Drop Auto-Failover</text>
+      <text x="12" y="68" fill="#64748B" font-family="monospace" font-size="8.5">Rotates Smoothly on 401/429</text>
+    </g>
+
+    <g transform="translate(15, 250)">
+      <rect width="230" height="80" rx="8" fill="#090D16" stroke="#334155" stroke-width="1" />
+      <text x="12" y="22" fill="#38BDF8" font-family="monospace" font-size="10.5" font-weight="700">ElevenLabs API Grid</text>
+      <text x="12" y="40" fill="#94A3B8" font-family="monospace" font-size="9.5">• v3 Conversational &amp; Standard</text>
+      <text x="12" y="54" fill="#94A3B8" font-family="monospace" font-size="9.5">• Turbo v2.5 &amp; Flash v2.5</text>
+      <text x="12" y="68" fill="#34D399" font-family="monospace" font-size="8.5">Lossless Audio Stream Decoder</text>
+    </g>
+  </g>
+</svg>
