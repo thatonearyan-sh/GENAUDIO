@@ -3,6 +3,7 @@ Account & Key Pool Manager for GENAUDIO
 Handles multi-account storage, auto-sync, live health verification, smart load balancing and failover.
 """
 from __future__ import annotations
+import os
 import json
 import time
 from datetime import datetime
@@ -10,8 +11,8 @@ from pathlib import Path
 from typing import Optional, Dict, Any, List
 import requests
 
-SECRETS_POOL_PATH = Path(os.environ.get("ELEVENLABS_KEYS_POOL", str(BASE_DIR / "keys_pool.example.txt")))
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRETS_POOL_PATH = Path(os.environ.get("ELEVENLABS_KEYS_POOL", str(BASE_DIR / "keys_pool.example.txt")))
 ACCOUNTS_FILE = BASE_DIR / "accounts.json"
 
 class AccountManager:

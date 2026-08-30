@@ -1,7 +1,7 @@
 # 🎬 GENAUDIO DEMO SCRIPT — Multi-Scene Sample
 
 ## Scene 1: Introduction & Welcome
-[excited] Hey everyone! Welcome to the brand new GENAUDIO studio running directly inside AryanTools.
+[excited] Hey everyone! Welcome to the brand new GENAUDIO studio.
 [delighted] This is a sample multi-scene long-form script demonstrating automated chunking and lossless FFmpeg audio merging.
 
 ## Scene 2: The Secret Feature

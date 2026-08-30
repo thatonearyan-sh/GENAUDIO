@@ -12,18 +12,18 @@
 
 <br />
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=18&duration=2400&pause=1000&color=00E5FF&center=true&vCenter=true&width=650&lines=Interactive+Terminal+TUI+Studio;Multi-Voice+Dialogue+%26+Podcast+Engine;Automated+.SRT+%26+.VTT+Subtitle+Synchronizer;Sidechain+Compression+BGM+Auto-Ducker;Resilient+Key+Pool+Load+Balancer+(10-Key+Failover);Pitch-Preserved+Audio+Speed+Engine;Contextual+AI+Emotion+Tag+Injector" alt="GENAUDIO Typeline" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=18&duration=2400&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&lines=Interactive+Terminal+TUI+Studio;Multi-Voice+Dialogue+%26+Podcast+Engine;Automated+.SRT+%26+.VTT+Subtitle+Synchronizer;Sidechain+Compression+BGM+Auto-Ducker;Resilient+Key+Pool+Load+Balancer+(10-Key+Failover);Pitch-Preserved+Audio+Speed+Engine;Contextual+AI+Emotion+Tag+Injector" alt="GENAUDIO Typeline" />
 
 <br />
 
 <p align="center">
-  <b>GENAUDIO</b> is an open-source, enterprise-grade audio engineering CLI and interactive terminal studio built for <b>ElevenLabs</b> voice synthesis. Engineered with resilient multi-key pool balancing, automated long-form sentence chunking, dynamic subtitle generation, and FFmpeg sidechain background music ducking.
+  <b>GENAUDIO</b> is an open-source audio engineering CLI and interactive terminal studio built for <b>ElevenLabs</b> voice synthesis. Engineered with resilient multi-key pool balancing, automated long-form sentence chunking, dynamic subtitle generation, and FFmpeg sidechain background music ducking.
 </p>
 
+[TUI Interface](#-the-terminal-tui-interface) &bull;
 [System Architecture](#-system-architecture) &bull;
 [Core Modules](#-core-audio-modules) &bull;
-[The Terminal TUI](#-the-terminal-tui-interface) &bull;
-[BGM Sidechain Ducking](#-sidechain-ducking--dsp-pipeline) &bull;
+[Sidechain Ducking](#-sidechain-ducking--dsp-pipeline) &bull;
 [Key Pool Architecture](#-resilient-key-pool--load-balancer) &bull;
 [Installation &amp; Setup](#-installation--quickstart) &bull;
 [Test Suite](#-automated-audit--test-suite)
@@ -32,31 +32,39 @@
 
 </div>
 
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> System Architecture
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M4 17l6-6-6-6M12 19h8"/></svg> The Terminal TUI Interface
+
+GENAUDIO provides a keyboard-driven terminal interface built with **Rich** and **InquirerPy**:
+
+<div align="center">
+  <img src="assets/tui-preview.png" alt="GENAUDIO Terminal TUI" width="100%" style="border-radius: 10px; margin: 16px 0; box-shadow: 0 16px 40px rgba(0,0,0,0.6);" />
+</div>
+
+- **Live Telemetry Bar**: Shows active API keys, character quota pool headroom, and output directory status before every operation.
+- **Interactive Wizards**: Step-by-step prompts with built-in `[Done]`, `[Back]`, and `:cancel` escape hatches.
+- **0ms Audio Auditioning**: Previews voices instantly through macOS `afplay` without downloading files.
+
+---
+
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> System Architecture
 
 GENAUDIO decouples interactive terminal control, multi-key load balancing, speech chunking, and DSP audio processing across three modular tiers:
 
 <div align="center">
-  <img src="assets/architecture.svg" alt="GENAUDIO Architecture" width="100%" style="border-radius: 12px; margin: 18px 0;" />
+  <img src="assets/architecture.svg" alt="GENAUDIO Architecture" width="100%" style="border-radius: 10px; margin: 16px 0;" />
 </div>
 
 ---
 
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Core Audio Modules
-
-<div>
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=16&duration=2400&pause=1000&color=F59E0B&vCenter=true&width=550&lines=Sub-millisecond+Sentence+Boundary+Chunking;EBU+R128+Two-Pass+Loudness+Normalization;Lossless+FFmpeg+Stream+Concatenator;Vocal+Isolation+%26+Stem+Separation" alt="Audio Stream" />
-</div>
-
-<br />
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Core Audio Modules
 
 ### 1. Quick Text-to-Speech Wizard
-- Instant synthesis supporting `v3 Conversational`, `v3 Standard`, `Multilingual v2`, `Turbo v2.5`, and `Flash v2.5`.
-- Pre-flight token and duration calculations prevent character consumption surprises.
+- Direct voice synthesis supporting `v3 Conversational`, `v3 Standard`, `Multilingual v2`, `Turbo v2.5`, and `Flash v2.5`.
+- Real-time pre-flight character count and estimated audio duration prevents quota surprises.
 
 ### 2. Long-Form Script Studio &amp; Subtitles
-- Intelligent boundary splitting on punctuation and scene headers (`## Scene 1`).
-- Lossless concatenation into a single Master MP3.
+- Intelligent boundary splitting based on punctuation and Markdown scene headers (`## Scene 1`).
+- Lossless concatenation of voice chunks via FFmpeg into a single Master MP3.
 - Automatic synchronized `.SRT` and `.VTT` subtitle generation for video editors.
 
 ### 3. Multi-Voice Dialogue &amp; Podcast Studio
@@ -83,31 +91,17 @@ GENAUDIO decouples interactive terminal control, multi-key load balancing, speec
 
 ---
 
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M4 17l6-6-6-6M12 19h8"/></svg> The Terminal TUI Interface
-
-<div align="center">
-  <img src="assets/tui-preview.svg" alt="GENAUDIO TUI Preview" width="100%" style="border-radius: 12px; margin: 18px 0;" />
-</div>
-
----
-
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M2 10v3M6 6v11M10 3v18M14 8v7M18 5v13M22 10v3"/></svg> Sidechain Ducking &amp; DSP Pipeline
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M2 10v3M6 6v11M10 3v18M14 8v7M18 5v13M22 10v3"/></svg> Sidechain Ducking &amp; DSP Pipeline
 
 GENAUDIO embeds hardware FFmpeg sidechain compression filters. When speech audio begins, background music automatically drops by -18dB and seamlessly ramps back up (+0dB) during inter-speaker pauses:
 
 <div align="center">
-  <img src="assets/waveform-sidechain.svg" alt="FFmpeg Sidechain Ducking Pipeline" width="100%" style="border-radius: 12px; margin: 18px 0;" />
+  <img src="assets/waveform-sidechain.svg" alt="FFmpeg Sidechain Ducking Pipeline" width="100%" style="border-radius: 10px; margin: 16px 0;" />
 </div>
 
 ---
 
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Resilient Key Pool &amp; Load Balancer
-
-<div>
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=16&duration=2400&pause=1000&color=10B981&vCenter=true&width=550&lines=Real-Time+Quota+Health+Verification;Highest-Quota-First+Smart+Routing;Zero-Drop+HTTP+401+%2F+429+Failover;Multi-Account+Encrypted+JSON+Vault" alt="Key Pool Stream" />
-</div>
-
-<br />
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Resilient Key Pool &amp; Load Balancer
 
 GENAUDIO avoids single-key API bottlenecks by managing an active pool of accounts:
 
@@ -119,7 +113,7 @@ GENAUDIO avoids single-key API bottlenecks by managing an active pool of account
 
 ---
 
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Installation &amp; Quickstart
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Installation &amp; Quickstart
 
 ### 1. Prerequisites
 - Python 3.10+
@@ -170,7 +164,7 @@ python3 genaudio.py
 
 ---
 
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Automated Audit &amp; Test Suite
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Automated Audit &amp; Test Suite
 
 GENAUDIO includes an automated end-to-end verification suite covering all core modules:
 
@@ -196,7 +190,7 @@ OK
 
 ---
 
-## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Architect &amp; License
+## <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -3px; margin-right: 8px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Architect &amp; License
 
 Developed by **Aryan**  
 - **GitHub**: [@thatonearyan-sh](https://github.com/thatonearyan-sh)  

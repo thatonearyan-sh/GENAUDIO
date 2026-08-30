@@ -22,6 +22,10 @@ from core.tag_injector import TagInjector
 from core.dialogue_engine import DialogueEngine
 from core.bgm_mixer import BGMMixer
 from core.audio_processor import AudioProcessor
+import json
+import shutil
+import subprocess
+from unittest.mock import patch, MagicMock
 from core.subtitle_generator import SubtitleGenerator
 from core.history_manager import HistoryManager
 from core.batch_queue import BatchQueueProcessor
@@ -29,7 +33,14 @@ from core.batch_queue import BatchQueueProcessor
 class TestGenAudioAllModules(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.acc_mgr = AccountManager()
+        # Create isolated test accounts config to avoid touching user accounts.json
+        cls.test_accounts_path = BASE_DIR / "tests" / "test_accounts.json"
+        with open(BASE_DIR / "accounts.example.json", "r") as f:
+            test_data = json.load(f)
+        with open(cls.test_accounts_path, "w") as f:
+            json.dump(test_data, f, indent=2)
+
+        cls.acc_mgr = AccountManager(accounts_path=cls.test_accounts_path)
         cls.voice_browser = VoiceBrowser(cls.acc_mgr)
         cls.generator = AudioGenerator(cls.acc_mgr)
         cls.long_form = LongFormEngine(cls.generator, cls.acc_mgr)
@@ -37,9 +48,47 @@ class TestGenAudioAllModules(unittest.TestCase):
         cls.sfx_gen = SFXGenerator(cls.acc_mgr)
         cls.bgm_mixer = BGMMixer()
         cls.audio_proc = AudioProcessor()
-        cls.history_mgr = HistoryManager()
+        cls.test_history_path = BASE_DIR / "tests" / "test_history.json"
+        cls.history_mgr = HistoryManager(history_file=cls.test_history_path)
         cls.batch_queue = BatchQueueProcessor(cls.long_form, cls.generator, cls.acc_mgr)
         cls.output_mgr = OutputManager()
+
+        # Generate a small valid 1.5s MP3 sample for mocking audio responses
+        cls.dummy_mp3 = BASE_DIR / "outputs" / ".test_dummy.mp3"
+        cls.dummy_mp3.parent.mkdir(parents=True, exist_ok=True)
+        if not cls.dummy_mp3.exists():
+            subprocess.run(
+                ["ffmpeg", "-y", "-f", "lavfi", "-i", "sine=frequency=440:duration=1.5", "-b:a", "128k", str(cls.dummy_mp3)],
+                check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            )
+        with open(cls.dummy_mp3, "rb") as f:
+            cls.dummy_audio_bytes = f.read()
+
+        def mock_post(url, *args, **kwargs):
+            resp = MagicMock()
+            resp.status_code = 200
+            resp.content = cls.dummy_audio_bytes
+            resp.json.return_value = {"category": "generated", "description": "Mocked sound effect"}
+            return resp
+
+        cls.patcher = patch("requests.post", side_effect=mock_post)
+        cls.patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.patcher.stop()
+        if cls.test_accounts_path.exists():
+            cls.test_accounts_path.unlink()
+        if cls.test_history_path.exists():
+            cls.test_history_path.unlink()
+        if cls.dummy_mp3.exists():
+            cls.dummy_mp3.unlink()
+        # Clean up test output artifacts
+        for p in (BASE_DIR / "outputs").glob("audit*"):
+            if p.is_file():
+                p.unlink()
+            elif p.is_dir():
+                shutil.rmtree(p, ignore_errors=True)
 
     def test_01_account_manager(self):
         """Audit key pool management and balance tracker."""
